@@ -3,7 +3,9 @@
 # display network configuration # 
 
 show_network_config() {
+    echo
     echo "Current Network Configuration : "
+    echo
     ip addr show
     echo 
     echo "Routing Table : "
@@ -14,8 +16,10 @@ show_network_config() {
 # restart networking services # 
 
 restart_networking() {
+    echo
     echo "Restarting Networking Services..."
     sudo systemctl restart networking
+    echo
     echo "Networking Services Restarted!"
     echo
 }
@@ -23,12 +27,17 @@ restart_networking() {
 # flush the ip address from the interface #
 
 flush_ip() {
+    echo
     echo "Available Interfaces : "
+    echo
     ip link show | grep -E '^[0-9]+:' | awk -F '{print $2}'
     echo
     read -p "Enter the Interface to Flush IP from (e.g., eno1) : " interface
+    echo
     echo "Flushing IP Address from $interface..."
+    echo
     sudo ip addr flush dev $interface
+    echo
     echo "IP Address Flushed from $interface!"
     echo
 }
@@ -36,17 +45,24 @@ flush_ip() {
 # set a static ip address # 
 
 set_static_ip() {
+    echo
     echo "Available Interfaces : "
     ip link show | grep -E '^[0-9]+:' | awk -F '{print $2}'
     echo
     read -p "Enter the Interface to set Static IP on 9e.g., eno1) :" interface
+    echo
     read -p "Enter the Static IP Address (e.g., 192.168.1.100) : " ip_address
+    echo
     read -p "Enter the Netmask (e.g., 255.255.255.0) : " netmask
+    echo
     read -p "Enter the gateway (e.g., 192.168.1.1) : " gateway
-
+    echo
     echo "Setting Static IP Address on $interface..."
+    echo
     sudo ip addr add $ip_address/$netmask dev $interface
+    echo
     sudo ip route add default via $gateway
+    echo
     echo "Static IP Address set on $interface!"
     echo
 }
@@ -54,16 +70,22 @@ set_static_ip() {
 # change the mac address of the interface #
 
 change_mac() {
+    echo
     echo "Available Interfaces : "
     ip link show | grep -E '^[0-9]+:' | awk -F '{print $2}' 
     echo
     read -p "Enter the Interface to change MAC Address e.g., eno1) : " interface
+    echo
     read -p "Enter the New MAC Address (e.g., 00:11:22:33:44:55) : " new_mac
-
+    echo
     echo "Chnaging New MAC Address of $interface to $new_mac..."
+    echo
     sudo ip link set dev $interface down
+    echo
     sudo ip link set dev $interface address $new_mac
+    echo
     sudo ip link set dev $interface up
+    echo
     echo "MAC Address of $interface Changed to $new_mac!" 
     echo
 }
@@ -77,7 +99,7 @@ change_mac() {
 while true; do
     echo
     echo "Network Services"
-    echo
+    echo "----------------"
     echo "1. Show Network Configuration"
     echo "2. Restart Networking Service"
     echo "3. Flush IP Address from Interface"
@@ -85,7 +107,7 @@ while true; do
     echo "5. Change MAC Address"
     echo "6. Exit"
     read -p "Choose an Option (1-6): " choice
-
+    echo
     case $choice in
     1) show_network_config ;;
     2) restart_networking ;;
