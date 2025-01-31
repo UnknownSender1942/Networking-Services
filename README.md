@@ -1,5 +1,5 @@
 
-# Networking-Services (bash script)
+# Network-Services (bash script)
 
 
 This bash script has been designed to simplify simple networking tasks like changing IP address & MAC addresses of the network interfaces.
