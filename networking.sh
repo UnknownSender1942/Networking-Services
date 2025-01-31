@@ -57,7 +57,7 @@ change_mac() {
     echo "Available Interfaces : "
     ip link show | grep -E '^[0-9]+:' | awk -F '{print $2}' 
     echo
-    read -p "Enter the Interface to change MAC Address 9e.g., eno1) : " interface
+    read -p "Enter the Interface to change MAC Address e.g., eno1) : " interface
     read -p "Enter the New MAC Address (e.g., 00:11:22:33:44:55) : " new_mac
 
     echo "Chnaging New MAC Address of $interface to $new_mac..."
