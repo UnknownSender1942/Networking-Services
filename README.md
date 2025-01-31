@@ -7,6 +7,9 @@ It provides an interacrtive menu to manage network configurations.
 
 ----
 
+![networking](https://github.com/user-attachments/assets/075b9916-18bc-490b-8a77-71fa4622026b)
+
+
 # Features
 
 - Show Network Configuration:
