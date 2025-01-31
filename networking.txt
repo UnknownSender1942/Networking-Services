@@ -22,7 +22,7 @@ How to use the script:
 Notes: 
 This script uses the IP command.
 This script assumes you have root privileges.
-The chnages you do on the script are temporary and will not be persistent after reboot. 
+The changes you do on the script are temporary and will not be persistent after reboot. 
 To make a permanent change you need to edit the working configuration file located at /etc/network/interfaces.
 
 
