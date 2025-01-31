@@ -75,7 +75,8 @@ change_mac() {
 ##############
 
 while true; do
-    echo "Networking Script"
+    echo
+    echo "Networking Services"
     echo
     echo "1. Show Network Configuration"
     echo "2. Restart Networking Service"
