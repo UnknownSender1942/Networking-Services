@@ -33,4 +33,17 @@ It provides an interacrtive menu to manage network configurations.
 
   Interactive and easy to use, that requires user input.
 
+-----
 
+# Usage
+
+1. Clone the repository: 
+`git clone https://github.com/UnknownSender1942/Networking-Services.git`
+
+2. Make the script executable:
+`chmod +x networking.sh`
+
+3. Run the script:
+`./networking.sh`
+
+-----
