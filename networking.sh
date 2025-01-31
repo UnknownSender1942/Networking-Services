@@ -115,6 +115,7 @@ while true; do
     4) set_static_ip ;;
     5) change_mac ;;
     6) echo "Exiting..."; 
+    echo
     break ;;
     *) echo "Invalid Option! Please try again!" ;;
         esac
