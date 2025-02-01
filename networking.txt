@@ -34,16 +34,19 @@ To make a permanent change you need to edit the working configuration file locat
 
 
 	show_network_config = this function displays the current network configuration.
+	-------------------------------------------------------------------------------
 	ip addr show: shows the IP addresses assigned to all network interfaces.
 	ip route show: Displays the routing table, which shows how traffic is routed.
 
 
 	restart_networking = This function restarts the networking services.
+	--------------------------------------------------------------------
 	sudo systemctl restart networking: Restarts the networking services using systemctl. 
 	This is useful if you've made changes to the network configuration and need to apply them.
 
 	
 	flush_ip = This function removes all IP addresses from a specific network interface.
+	------------------------------------------------------------------------------------
 	ip link show: Lists all network interfaces.
 	grep -E `^[0-9]+:` : filters the output to show only the interface names.
 	awk -F: `{print $2}` : extracts the interface name from the output.
@@ -52,6 +55,7 @@ To make a permanent change you need to edit the working configuration file locat
 
 	
 	set_static_ip = This function assigns a static IP address to a network interface.
+	---------------------------------------------------------------------------------
 	ip link show: Lists all network interfaces.
 	read -p: Prompts the user to enter information like IP address and netmask of the interface.
 	sudo ip addr add $ip_address/$netmask dev $interface: assigns the IP address and netmask to the interface.
@@ -59,6 +63,7 @@ To make a permanent change you need to edit the working configuration file locat
 
 
 	change_mac = This function allows you to change the MAC address of a network interface.
+	---------------------------------------------------------------------------------------
 	List interfaces: it lists all available network interfaces using ip link show.
 	User input: It prompts the user to enter the interface name and the new MAC address.
 	Change MAC address: 
@@ -70,6 +75,7 @@ To make a permanent change you need to edit the working configuration file locat
 
 
 	main menu = this script using a while loop to display a menu and handle user input.
+	-----------------------------------------------------------------------------------
 	the while true loop keeps the script running until the user chooses to exit.
 	the echo commands give a line break and display the menu options.
 	read -p: Prompts the user to choose an option.

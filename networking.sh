@@ -1,14 +1,16 @@
 #! /bin/bash
 
+sudo apt install lolcat -y
+
 # display network configuration # 
 
 show_network_config() {
     echo
-    echo "Current Network Configuration : "
+    echo "Current Network Configuration : " | lolcat
     echo
     ip addr show
     echo 
-    echo "Routing Table : "
+    echo "Routing Table : " | lolcat
     ip route show
     echo
 }
@@ -17,10 +19,11 @@ show_network_config() {
 
 restart_networking() {
     echo
-    echo "Restarting Networking Services..."
+    echo "Restarting Networking Services!" | lolcat
+    echo
     sudo systemctl restart networking
     echo
-    echo "Networking Services Restarted!"
+    echo "Networking Services Restarted!" | lolcat
     echo
 }
 
@@ -28,7 +31,7 @@ restart_networking() {
 
 flush_ip() {
     echo
-    echo "Available Interfaces : "
+    echo "Available Interfaces : " | lolcat
     echo
     ip link show | grep -E '^[0-9]+:' | awk -F '{print $2}'
     echo
@@ -46,7 +49,7 @@ flush_ip() {
 
 set_static_ip() {
     echo
-    echo "Available Interfaces : "
+    echo "Available Interfaces : " | lolcat
     ip link show | grep -E '^[0-9]+:' | awk -F '{print $2}'
     echo
     read -p "Enter the Interface to set Static IP on 9e.g., eno1) :" interface
@@ -71,7 +74,7 @@ set_static_ip() {
 
 change_mac() {
     echo
-    echo "Available Interfaces : "
+    echo "Available Interfaces : " | lolcat
     ip link show | grep -E '^[0-9]+:' | awk -F '{print $2}' 
     echo
     read -p "Enter the Interface to change MAC Address e.g., eno1) : " interface
@@ -98,14 +101,21 @@ change_mac() {
 
 while true; do
     echo
-    echo "Network Services"
+    echo "Network Services" | lolcat
     echo "----------------"
+    echo
     echo "1. Show Network Configuration"
+    echo
     echo "2. Restart Networking Service"
+    echo
     echo "3. Flush IP Address from Interface"
+    echo
     echo "4. Set Static IP Address"
+    echo
     echo "5. Change MAC Address"
+    echo
     echo "6. Exit"
+    echo
     read -p "Choose an Option (1-6): " choice
     echo
     case $choice in
@@ -122,3 +132,4 @@ while true; do
 done
 
 
+ 
